@@ -1,0 +1,21 @@
+.ramitlogi {
+  padding: 1em;
+  border-bottom: 1px solid #BADDFE;
+}
+
+.ramitlogi__rivi {
+  display: flex;
+  justify-content: space-between;
+}
+
+.ramitlogi__tyyppi,
+.ramitlogi__summa {
+  font-weight: bold;
+}
+
+.ramitlogi__lahetyspaiva,
+.ramitlogi__laskuttaja,
+.ramitlogi__keskiarvo {
+  font-size: 85%;
+  color: #666;
+}
