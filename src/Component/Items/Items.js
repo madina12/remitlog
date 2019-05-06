@@ -7,8 +7,8 @@ import Content from '../Content/Content';
 import {FloatingButton} from '../Buttons';
 
 function Items(props) {
-  let rows = props.data.map(invoice => {
-    return <Ramitlogi data={invoice} />;
+  let rows = props.data.map(data => {
+    return <Ramitlogi key={data.id} data={data} />;
   });
 
   return (

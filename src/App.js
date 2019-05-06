@@ -13,10 +13,11 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      data: testdata
+      data: []
     };
     this.handleFormSubmit = this.handleFormSubmit.bind(this);
   }
+
   handleFormSubmit(newdata) {
     let storeddata = this.state.data.slice();
     storeddata.push(newdata);
@@ -31,10 +32,12 @@ class App extends Component {
   }
 
   addData = data => {
+    console.log(this.state.data)
     this.setState({
-      data: testdata.concat(data)
+      data: this.state.data.concat(data)
     });
   };
+
   render() {
     return (
       <Router>

@@ -11,7 +11,8 @@ class ItemForm extends React.Component {
     super(props);
     this.state = {
       data: {
-        vastaanottaja: "",
+        // id: new Date().valueOf(),
+        saaja: "",
         summa: 0,
         lahetyspaiva: null
       },
@@ -43,7 +44,6 @@ class ItemForm extends React.Component {
 
   handleSubmit(event) {
     event.preventDefault();
-    console.log("lähetä lomake");
     let data = Object.assign({}, this.state.data);
     data.summa = parseFloat(data.summa);
     data.id = uuid.v4();
@@ -73,26 +73,19 @@ class ItemForm extends React.Component {
         <div className="itemform">
           <div className="itemform__row">
             <div>
-              <label htmlfor="vastaanottaja">Vastaanottaja</label>
+              <label htmlFor="saaja">Saaja</label>
               <input
                 type="text"
-                name="vastaanottaja"
+                name="saaja"
                 size="10"
-                value={this.state.data.vastaanottaja}
+                value={this.state.data.saaja}
                 onChange={this.handleInputChange}
               />
             </div>
           </div>
-          <div className="btn">
-            <div>
-              <Button type="submit" primary>
-                LISÄÄ
-              </Button>
-            </div>
-          </div>
           <div className="itemform__row">
             <div>
-              <label htmlfor="summa">Summa</label>
+              <label htmlFor="summa">Summa</label>
               <input
                 type="number"
                 name="summa"
@@ -104,7 +97,7 @@ class ItemForm extends React.Component {
             </div>
           </div>
           <div>
-            <label htmlfor="lahetyspaiva">Lahetyspäivä</label>
+            <label htmlFor="lahetyspaiva">Lahetyspäivä</label>
             <input
               type="date"
               name="lahetyspaiva"

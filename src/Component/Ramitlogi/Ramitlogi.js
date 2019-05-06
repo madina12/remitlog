@@ -4,9 +4,6 @@ import './ramitlogi.css';
 
 function Ramitlogi(props) {
   let lahetyspaiva = moment(props.data.lahetyspaiva);
-  let paivat = '';
-  let keskiarvo;
-  keskiarvo = (props.data.summa / paivat) * 30;
 
   return (
     <div className="ramitlogi">
@@ -17,12 +14,6 @@ function Ramitlogi(props) {
       <div className="ramitlogi__rivi">
         <div className="ramitlogi__lahetyspaiva">
           {lahetyspaiva.format('D.M.Y')}
-        </div>
-      </div>
-      <div className="ramitlogi__rivi">
-        <div className="ramitlogi__laskuttaja">{props.data.saaja}</div>
-        <div className="ramitlogi__keskiarvo">
-          {keskiarvo ? keskiarvo.toFixed(2) + ' € / kk' : ''}
         </div>
       </div>
     </div>
