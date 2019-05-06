@@ -2,7 +2,7 @@ import React from "react";
 import { withRouter } from "react-router";
 import uuid from "uuid";
 
-import Button from "../Button";
+import Button from "../Buttons";
 
 import "./ItemForm.css";
 
@@ -18,7 +18,7 @@ class ItemForm extends React.Component {
       name: "",
       names: []
     };
-    // this.handleInputChange = this.handleInputChange.bind(this);
+    this.handleInputChange = this.handleInputChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleCancel = this.handleCancel.bind(this);
   }
@@ -36,12 +36,6 @@ class ItemForm extends React.Component {
     });
   }
 
-  handleNameChange = event => {
-    this.setState({
-      [event.target.name]: event.target.value
-    });
-  };
-
   handleCancel(event) {
     event.preventDefault();
     this.props.history.goBack();
@@ -52,6 +46,8 @@ class ItemForm extends React.Component {
     console.log("lähetä lomake");
     let data = Object.assign({}, this.state.data);
     data.summa = parseFloat(data.summa);
+    data.id = uuid.v4();
+
     this.props.onFormSubmit(data);
     this.props.history.push("/");
   }
@@ -79,13 +75,19 @@ class ItemForm extends React.Component {
             <div>
               <label htmlfor="vastaanottaja">Vastaanottaja</label>
               <input
-                type="number"
+                type="text"
                 name="vastaanottaja"
-                step="0.01"
                 size="10"
                 value={this.state.data.vastaanottaja}
                 onChange={this.handleInputChange}
               />
+            </div>
+          </div>
+          <div className="btn">
+            <div>
+              <Button type="submit" primary>
+                LISÄÄ
+              </Button>
             </div>
           </div>
           <div className="itemform__row">
