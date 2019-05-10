@@ -70,7 +70,7 @@ class App extends Component
 
           <Route
             path="/add"
-            render={() => <AddItem onFormSubmit={this.addData} />}
+            render={() => <AddItem onFormSubmit={this.addData} selectList={this.state.selectList} />}
           />
           <Menu />
         </div>

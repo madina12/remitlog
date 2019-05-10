@@ -6,8 +6,10 @@ import Button from "../Buttons";
 
 import "./ItemForm.css";
 
-class ItemForm extends React.Component {
-  constructor(props) {
+class ItemForm extends React.Component
+{
+  constructor(props)
+  {
     super(props);
     this.state = {
       data: {
@@ -24,7 +26,8 @@ class ItemForm extends React.Component {
     this.handleCancel = this.handleCancel.bind(this);
   }
 
-  handleInputChange(event) {
+  handleInputChange(event)
+  {
     const target = event.target;
     const value = target.type === "checkbox" ? target.checked : target.value;
     const name = target.name;
@@ -37,12 +40,14 @@ class ItemForm extends React.Component {
     });
   }
 
-  handleCancel(event) {
+  handleCancel(event)
+  {
     event.preventDefault();
     this.props.history.goBack();
   }
 
-  handleSubmit(event) {
+  handleSubmit(event)
+  {
     event.preventDefault();
     let data = Object.assign({}, this.state.data);
     data.summa = parseFloat(data.summa);
@@ -52,7 +57,8 @@ class ItemForm extends React.Component {
     this.props.history.push("/");
   }
 
-  handleAddNewName = e => {
+  handleAddNewName = e =>
+  {
     const name = this.state.name;
     if (name) {
       const names = this.state.names.concat(name);
@@ -67,21 +73,25 @@ class ItemForm extends React.Component {
     }
   };
 
-  render() {
+  render()
+  {
     return (
       <form onSubmit={this.handleSubmit}>
         <div className="itemform">
           <div className="itemform__row">
             <div>
               <label htmlFor="saaja">Saaja</label>
-              <input
-                type="text"
-                name="saaja"
-                size="10"
+              <select
+                name="saaja">
                 value={this.state.data.saaja}
                 onChange={this.handleInputChange}
-              />
+                >
+                {this.props.selectList.map(item => <option value={item} key={item}>{item}</option>)}
+
+              </select>
             </div>
+
+
           </div>
           <div className="itemform__row">
             <div>
