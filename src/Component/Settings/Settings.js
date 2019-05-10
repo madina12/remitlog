@@ -16,6 +16,9 @@ function Settings(props)
     <Content>
       <div class="settings">
         <h2>Settings</h2>
+
+        {props.selectList.map(item => <div key={item}>{item}</div>)}
+
         <h3>Saaja </h3>
         <div className="settings__items">
           <form onSubmit={handleSubmit}>

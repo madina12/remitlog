@@ -23,7 +23,7 @@ function Stats(props)
   }
 
   let groupedData = props.data.reduce(reducer, []);
-  let DoughnutDAta = {
+  let DoughnutData = {
     labels: groupedData.map(item => item.tyyppi),
     datasets: [{
       data: groupedData.map(item => item.summa),
@@ -74,7 +74,7 @@ function Stats(props)
         </div>
         <h3>kulut tyyppetain</h3>
         <div className="stats__graph">
-          <Doughnut data={DoughnutDAta} />
+          <Doughnut data={DoughnutData} />
         </div>
       </div>
     </Content >
