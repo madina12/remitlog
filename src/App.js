@@ -48,7 +48,7 @@ class App extends Component {
             exact
             render={() => <Items data={this.state.data} />}
           />
-          <Route path="/stats" component={Stats} />
+          <Route path="/stats" render={() => <Stats data={this.state.data} />} />
           <Route path="/settings" component={Settings} />
           <Route
             path="/add"

@@ -1,11 +1,32 @@
 import React from 'react';
 import Content from '../Content/Content';
-function Settings(props){
-    return (
-      <Content>
-      <h2>Settings</h2>
-  </Content>
-    );
-  
+import Button from '../Buttons';
+import './Settings.css';
+function Settings(props)
+{
+  const handleSubmit = function (event)
+  {
+    event.preventDefault()
+    let saaja = event.target.elements.saaja.value;
+    console.log("juuu-" + saaja);
+    props.onFormSubmit(saaja);
+    event.target.elements.saaja.value = "";
   }
-  export default Settings;
+  return (
+    <Content>
+      <div class="settings">
+        <h2>Settings</h2>
+        <h3>Saaja </h3>
+        <div className="settings__items">
+          <form onSubmit={handleSubmit}>
+            <div className="settingsForm">
+              <input type="text" name="saaja" />
+              <Button type="submit" primary>lisää</Button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </Content>
+  );
+}
+export default Settings;
