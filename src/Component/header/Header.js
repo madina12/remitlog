@@ -3,7 +3,7 @@ import './Header.css';
 function Header(props) {
   return (
     <div className="header">
-      <h1>RamitLog</h1>
+      <h1>Remit Log</h1>
     </div>
   );
 }

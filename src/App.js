@@ -5,7 +5,6 @@ import Menu from "./Component/Menu/Menu";
 import Items from "./Component/Items/Items";
 import Stats from "./Component/Stats/Stats";
 import Settings from "./Component/Settings/Settings";
-import testdata from "./testdata";
 import AddItem from "./Component/AddItem/AddItem";
 import "./App.css";
 
@@ -47,10 +46,11 @@ class App extends Component
 
   handleSelectListForm(newItem)
   {
-
-    this.setState({
-      selectList: this.state.selectList.concat(newItem)
-    });
+    if(this.state.selectList.indexOf(newItem) === -1) {
+      this.setState({
+        selectList: this.state.selectList.concat(newItem)
+      });
+    }
   }
 
   render()
@@ -65,8 +65,8 @@ class App extends Component
             render={() => <Items data={this.state.data} />}
           />
           <Route path="/stats" render={() => <Stats data={this.state.data} />} />
-          <Route path="/settings" render={() => <Settings selectList={this.state.selectList}
-            onFormSubmit={this.handleSelectListForm} />} />
+          <Route path="/settings" render={() =>
+            <Settings selectList={this.state.selectList} onFormSubmit={this.handleSelectListForm} />} />
 
           <Route
             path="/add"

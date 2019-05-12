@@ -8,7 +8,7 @@ function AddItem(props)
   return (
     <Content>
       <div className="additen">
-        <h2> Uuden lähetyksen lisääminen </h2>
+        <h2>Uuden lähetyksen lisääminen</h2>
         <ItemForm onFormSubmit={props.onFormSubmit} selectList={props.selectList} />
       </div>
     </Content>

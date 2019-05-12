@@ -34,3 +34,7 @@ itemform {
   font-size: 0.8em;
   margin-bottom: 0.2em;
 }
+
+.itemform__virhe {
+  color: red;
+}

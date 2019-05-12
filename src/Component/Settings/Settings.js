@@ -8,18 +8,18 @@ function Settings(props)
   {
     event.preventDefault()
     let saaja = event.target.elements.saaja.value;
-    console.log("juuu-" + saaja);
     props.onFormSubmit(saaja);
     event.target.elements.saaja.value = "";
   }
+
   return (
     <Content>
-      <div class="settings">
+      <div className="settings">
         <h2>Settings</h2>
 
         {props.selectList.map(item => <div key={item}>{item}</div>)}
 
-        <h3>Saaja </h3>
+        <h3>Saaja</h3>
         <div className="settings__items">
           <form onSubmit={handleSubmit}>
             <div className="settingsForm">
