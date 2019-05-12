@@ -13,7 +13,7 @@ class ItemForm extends React.Component {
       data: {
         saaja: "",
         summa: 0,
-        lahetyspaiva: null,
+        lahetyspaiva: '',
       },
       name: "",
       virhe: false
@@ -24,12 +24,10 @@ class ItemForm extends React.Component {
   }
 
   handleInputChange(event) {
-    console.log("handleInputChange")
     const target = event.target;
     const value = target.type === "checkbox" ? target.checked : target.value;
     const name = target.name;
 
-    console.log(name, value)
     this.setState({
       data: {
         ...this.state.data,

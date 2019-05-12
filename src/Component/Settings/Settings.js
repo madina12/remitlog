@@ -15,11 +15,12 @@ function Settings(props)
   return (
     <Content>
       <div className="settings">
-        <h2>Settings</h2>
+        <h2>Saajat</h2>
 
         {props.selectList.map(item => <div key={item}>{item}</div>)}
 
-        <h3>Saaja</h3>
+        <h4>Lisää saaja</h4>
+
         <div className="settings__items">
           <form onSubmit={handleSubmit}>
             <div className="settingsForm">
